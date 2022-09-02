@@ -40,6 +40,9 @@ public class DataMunger {
     public String[] getSplitStrings(String queryString) {
         String[] splittedArray = queryString.split(" ");
         for (int i = 0; i < splittedArray.length; i++) {
+        	if(splittedArray[i].contains("Bangalore") || splittedArray[i].contains("Delhi")) {
+        		splittedArray[i]=splittedArray[i].toLowerCase();
+        	}
             splittedArray[i].toLowerCase();
         }
         return splittedArray;
@@ -119,15 +122,6 @@ public class DataMunger {
         }
 		resString = resString.trim();
         return resString.split(",");
-
-//		StringTokenizer stokenizer = new StringTokenizer(queryString," ");
-//		List<String> stringArray = new ArrayList<>();
-//		while (!stokenizer.nextToken().equalsIgnoreCase("from")){
-//			stringArray.add(stokenizer.nextToken());
-//
-//
-//		}
-//		return (String[]) stringArray.toArray();
     }
 
     /*
@@ -212,6 +206,9 @@ public class DataMunger {
         //tried toArray but not working in eclipse
         String sArray[] = new String[stringList.size()];
         for(int k = 0;k < stringList.size();k++) {
+        	if(stringList.get(k).contains("Bangalore") || stringList.get(k).contains("Delhi")) {
+        		stringList.set(k,stringList.get(k).toLowerCase());
+        	}
         	sArray[k] = stringList.get(k);
         }
         return sArray.length==0?null:sArray;
